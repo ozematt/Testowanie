@@ -1,0 +1,3 @@
+exercises:
+    '01_Implementacja Testing Tool w projekcie': { max_points: 0, disabled: true }
+    '02_Tworzenie przykładowego flow z wykorzystaniem Testing Tool': { max_points: 0, disabled: true }

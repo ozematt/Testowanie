@@ -1,0 +1,3 @@
+exercises:
+    '01_Testowanie asynchronicznych zdarzeń w interfejsie użytkownika': { max_points: 0, disabled: true }
+    '02_Testowanie formularzy i ich walidacji': { max_points: 0, disabled: true }

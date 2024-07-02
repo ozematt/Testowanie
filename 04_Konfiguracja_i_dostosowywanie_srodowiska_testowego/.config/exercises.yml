@@ -1,0 +1,3 @@
+exercises:
+    '01_Instalacja i konfiguracja środowiska testów w projekcie kursu': { max_points: 0, disabled: true }
+    '02_Symulacja zachowania użytkownika': { max_points: 0, disabled: true }

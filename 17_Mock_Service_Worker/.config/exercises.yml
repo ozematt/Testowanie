@@ -1,0 +1,4 @@
+exercises:
+    '01_Konfiguracja Mock Service Worker w projekcie': { max_points: 0, disabled: true }
+    '02_Testowania różnych stanów komponentu w zależności od odpowiedzi API': { max_points: 0, disabled: true }
+    '03_Testowanie komponentów w różnych konfiguracjach i stanach aplikacji': { max_points: 0, disabled: true }

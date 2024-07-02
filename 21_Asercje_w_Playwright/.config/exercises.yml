@@ -1,0 +1,3 @@
+exercises:
+    '01_Tworzenie kompleksowych testów z asercjami': { max_points: 0, disabled: true }
+    '02_Weryfikacja scenariuszy użytkownika': { max_points: 0, disabled: true }

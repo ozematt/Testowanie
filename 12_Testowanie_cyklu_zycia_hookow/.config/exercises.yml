@@ -1,0 +1,3 @@
+exercises:
+    '01_Testowanie efektów ubocznych custom hooka': { max_points: 0, disabled: true }
+    '02_Testowanie kompleksowe custom hooka': { max_points: 0, disabled: true }

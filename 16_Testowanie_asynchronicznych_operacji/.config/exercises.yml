@@ -1,0 +1,2 @@
+exercises:
+    '01_Testowania różnych stanów komponentu w zależności od odpowiedzi API': { max_points: 0, disabled: true }
