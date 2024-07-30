@@ -29,19 +29,19 @@ describe("isPalindrome function", () => {
     expect(output).toBe(true);
   });
 
-  // test("should return true for an empty string", () => {
-  //   const input = "";
-  //   const output = isPalindrome(input);
+  test("should return true for an empty string", () => {
+    const input = "";
+    const output = isPalindrome(input);
 
-  //   expect(output).toBe(true);
-  // });
+    expect(output).toBe(true);
+  });
 
-  // test("should throw an error if the argument is not a string", () => {
-  //   const input = 123;
-  //   const testFunction = () => {
-  //     isPalindrome(input);
-  //   };
+  test("should throw an error if the argument is not a string", () => {
+    const input = 123;
+    const testFunction = () => {
+      isPalindrome(input);
+    };
 
-  //   expect(testFunction).toThrowError("Wrong argument");
-  // });
+    expect(testFunction).toThrowError("Wrong argument");
+  });
 });
