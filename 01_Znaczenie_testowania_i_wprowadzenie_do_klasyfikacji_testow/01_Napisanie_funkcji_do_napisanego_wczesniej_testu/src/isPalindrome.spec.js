@@ -15,12 +15,12 @@ describe("isPalindrome function", () => {
     expect(output).toBe(true);
   });
 
-  // test("should return false for 'kot'", () => {
-  //   const input = "kot";
-  //   const output = isPalindrome(input);
+  test("should return false for 'kot'", () => {
+    const input = "kot";
+    const output = isPalindrome(input);
 
-  //   expect(output).toBe(false);
-  // });
+    expect(output).toBe(false);
+  });
 
   // test("should return true for 'Anna', regardless of case", () => {
   //   const input = "Anna";
