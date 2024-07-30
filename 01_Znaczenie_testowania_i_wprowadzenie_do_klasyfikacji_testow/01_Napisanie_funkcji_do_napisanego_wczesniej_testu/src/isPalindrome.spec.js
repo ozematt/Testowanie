@@ -1,5 +1,12 @@
 import { describe, test, expect } from "vitest";
 
+const isPalindrome = (word) => {
+  if (typeof word !== "string") {throw new Error("Wrong argument");}
+  word = word.toLowerCase();
+  return word === word.split('').reverse().join('');
+
+}
+
 describe("isPalindrome function", () => {
   test("should return true for 'kajak'", () => {
     const input = "kajak";
