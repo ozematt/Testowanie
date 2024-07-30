@@ -22,12 +22,12 @@ describe("isPalindrome function", () => {
     expect(output).toBe(false);
   });
 
-  // test("should return true for 'Anna', regardless of case", () => {
-  //   const input = "Anna";
-  //   const output = isPalindrome(input);
+  test("should return true for 'Anna', regardless of case", () => {
+    const input = "Anna";
+    const output = isPalindrome(input);
 
-  //   expect(output).toBe(true);
-  // });
+    expect(output).toBe(true);
+  });
 
   // test("should return true for an empty string", () => {
   //   const input = "";
