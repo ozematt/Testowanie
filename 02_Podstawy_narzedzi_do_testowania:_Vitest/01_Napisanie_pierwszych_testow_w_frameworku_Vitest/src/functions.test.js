@@ -1,6 +1,7 @@
 import { describe, it, expect, test } from "vitest";
 import { multiply, isAdult, getUsername } from "./functions";
 
+//test1
 describe("test functions", () => {
   describe("test multiplay function", () => {
     test("2 * 2 should return 4", () => {
