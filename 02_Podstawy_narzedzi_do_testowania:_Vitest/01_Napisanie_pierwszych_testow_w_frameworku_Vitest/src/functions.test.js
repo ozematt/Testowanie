@@ -22,7 +22,6 @@ describe("test functions", () => {
   });
 
   describe("test getUsername function", () => {
-    //test 3
     test("should resolve with user data when userId is 1", async () => {
       const userId = 1;
       const expected = { id: 1, name: "John Doe" };
@@ -30,7 +29,6 @@ describe("test functions", () => {
       await expect(getUsername(userId)).resolves.toEqual(expected);
     });
 
-    //test 4
     test("should reject with error message when userId is not 1", async () => {
       const userId = 2;
       const expectedError = new Error("User not found");
