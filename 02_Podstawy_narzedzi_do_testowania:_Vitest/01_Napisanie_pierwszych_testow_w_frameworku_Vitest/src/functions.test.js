@@ -1,5 +1,6 @@
 import { describe, it, expect, test } from "vitest";
 import { multiply, isAdult, getUsername } from "./functions";
+
 describe("test functions", () => {
   describe("test multiplay function", () => {
     test("2 * 2 should return 4", () => {
@@ -25,6 +26,7 @@ describe("test functions", () => {
 
       await expect(getUsername(userId)).resolves.toEqual(expected);
     });
+
     test("should reject with error message when userId is not 1", async () => {
       const userId = 2;
       const expectedError = new Error("User not found");
