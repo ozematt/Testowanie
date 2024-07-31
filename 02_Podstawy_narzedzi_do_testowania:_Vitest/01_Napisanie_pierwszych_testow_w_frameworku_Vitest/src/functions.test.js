@@ -23,8 +23,7 @@ describe("test getUsername function", () => {
     const userId = 1;
     const expected = { id: 1, name: "John Doe" };
 
-    const result = await getUsername(userId);
-    expect(result).toEqual(expected);
+    await expect(getUsername(userId)).resolves.toEqual(expected);
   });
   test("should reject with error message when userId is not 1", async () => {
     const userId = 2;
