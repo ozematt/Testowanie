@@ -3,14 +3,12 @@ import { multiply, isAdult, getUsername } from "./functions";
 
 describe("test functions", () => {
   describe("test multiplay function", () => {
-    //test 1
     test("2 * 2 should return 4", () => {
       expect(multiply(2, 2)).toBe(4);
     });
   });
 
   describe("test isAdult function", () => {
-    //test 2
     test.each([
       [18, true],
       [20, true],
