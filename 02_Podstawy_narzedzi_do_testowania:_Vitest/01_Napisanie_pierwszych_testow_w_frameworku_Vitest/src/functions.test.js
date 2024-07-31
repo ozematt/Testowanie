@@ -1,15 +1,16 @@
 import { describe, it, expect, test } from "vitest";
 import { multiply, isAdult, getUsername } from "./functions";
 
-//test1
 describe("test functions", () => {
   describe("test multiplay function", () => {
+    //test 1
     test("2 * 2 should return 4", () => {
       expect(multiply(2, 2)).toBe(4);
     });
   });
 
   describe("test isAdult function", () => {
+    //test 2
     test.each([
       [18, true],
       [20, true],
@@ -21,6 +22,7 @@ describe("test functions", () => {
   });
 
   describe("test getUsername function", () => {
+    //test 3
     test("should resolve with user data when userId is 1", async () => {
       const userId = 1;
       const expected = { id: 1, name: "John Doe" };
@@ -28,6 +30,7 @@ describe("test functions", () => {
       await expect(getUsername(userId)).resolves.toEqual(expected);
     });
 
+    //test 4
     test("should reject with error message when userId is not 1", async () => {
       const userId = 2;
       const expectedError = new Error("User not found");
