@@ -1,5 +1,5 @@
 import { describe, test, expect } from "vitest";
-import { render, screen } from "@testing-library/react";
+import { render, screen, waitFor } from "@testing-library/react";
 
 import { TaskList } from "./TaskList";
 
@@ -19,5 +19,17 @@ describe("<TaskList />", () => {
     render(<TaskList />);
     const deleyedTaskList = screen.queryByText("Task 1", "Task 2");
     expect(deleyedTaskList).not.toBeInTheDocument();
+  });
+
+  test("after loading the task list, the loading state is no longer present in the DOM", async () => {
+    render(<TaskList />);
+    const loadingMessage = screen.getByText("Data is loading...");
+    await waitFor(() =>
+      expect(screen.queryByText("Data is loading...")).not.toBeInTheDocument()
+    );
+
+    // expect(loadingMessage).not.toBeInTheDocument();
+    // expect(screen.getByText("Task 1")).toBeInTheDocument();
+    // expect(screen.getByText("Task 2")).toBeInTheDocument();
   });
 });
