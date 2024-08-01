@@ -1,10 +1,4 @@
-import { Example } from "./Example";
+import { AgeChecker } from "./AgeChecker";
 import { render, screen } from "@testing-library/react";
 
-describe("test <Example />", () => {
-  test("test", () => {
-    render(<Example />);
-
-    expect(screen.getByText("Example")).toBeInTheDocument();
-  });
-});
+describe("test <AgeCkecker />", () => {});
