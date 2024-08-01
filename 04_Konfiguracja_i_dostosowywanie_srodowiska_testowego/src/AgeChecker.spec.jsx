@@ -24,10 +24,17 @@ describe("test <AgeChecker />", () => {
   describe("Test of loading status and display of message for adults", () => {
     test("after clicking 'Check' and entering 20 years, loading will appears", async () => {
       render(<AgeChecker />);
+
+      //input
       const inputElement = screen.getByPlaceholderText("Type your age...");
+
+      //button
       const buttonElement = screen.getByRole("button");
 
+      //input change value
       fireEvent.change(inputElement, { target: { value: 20 } });
+
+      //button clicked
       fireEvent.click(buttonElement);
 
       expect(await screen.findByText("Loading...")).toBeInTheDocument();
