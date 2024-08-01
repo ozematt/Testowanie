@@ -25,11 +25,17 @@ describe("test <AgeChecker />", () => {
     test("after clicking 'Check' and entering 20 years, loading will appears", async () => {
       render(<AgeChecker />);
 
-      //input
-      const inputElement = screen.getByPlaceholderText("Type your age...");
+      //input - search by placeholder
+      // const inputElement = screen.getByPlaceholderText("Type your age...");
+
+      //input type=number - search by role
+      const inputElement = screen.getByRole("spinbutton");
 
       //button
       const buttonElement = screen.getByRole("button");
+
+      // text 'Loading..' on screen
+      const statusText = screen.findByRole("status");
 
       //input change value
       fireEvent.change(inputElement, { target: { value: 20 } });
@@ -37,7 +43,7 @@ describe("test <AgeChecker />", () => {
       //button clicked
       fireEvent.click(buttonElement);
 
-      expect(await screen.findByText("Loading...")).toBeInTheDocument();
+      expect(await statusText).toBeInTheDocument();
     });
   });
 });
