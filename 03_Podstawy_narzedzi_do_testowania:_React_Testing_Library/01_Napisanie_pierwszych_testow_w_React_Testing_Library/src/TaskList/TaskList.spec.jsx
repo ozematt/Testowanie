@@ -24,12 +24,10 @@ describe("<TaskList />", () => {
   test("after loading the task list, the loading state is no longer present in the DOM", async () => {
     render(<TaskList />);
     const loadingMessage = screen.getByText("Data is loading...");
+
+    // waitFor - jest ogólnym narzędziem do oczekiwania na spełnienie warunku
     await waitFor(() =>
       expect(screen.queryByText("Data is loading...")).not.toBeInTheDocument()
     );
-
-    // expect(loadingMessage).not.toBeInTheDocument();
-    // expect(screen.getByText("Task 1")).toBeInTheDocument();
-    // expect(screen.getByText("Task 2")).toBeInTheDocument();
   });
 });
