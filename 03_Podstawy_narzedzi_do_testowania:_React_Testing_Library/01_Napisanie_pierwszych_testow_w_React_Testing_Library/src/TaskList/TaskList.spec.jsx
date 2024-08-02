@@ -32,6 +32,7 @@ describe("<TaskList />", () => {
     const loadingElement = screen.queryByText("Data is loading...");
 
     expect(loadingElement).not.toBeInTheDocument();
+
     // waitFor - jest ogólnym narzędziem do oczekiwania na spełnienie warunku
     // await waitFor(() =>
     //   expect(screen.queryByText("Data is loading...")).not.toBeInTheDocument()

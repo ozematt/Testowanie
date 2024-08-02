@@ -31,20 +31,19 @@ describe("test <AgeChecker />", () => {
 
       //input type=number - search by role
       const inputElement = screen.getByRole("spinbutton");
+      //input change value
+      fireEvent.change(inputElement, { target: { value: 20 } });
+      //input focus out
+      fireEvent.focusOut(inputElement);
 
       //button
       const buttonElement = screen.getByRole("button");
-
-      // text 'Loading..' on screen
-      const statusText = screen.findByRole("status");
-
-      //input change value
-      fireEvent.change(inputElement, { target: { value: 20 } });
-
       //button clicked
       fireEvent.click(buttonElement);
 
-      expect(await statusText).toBeInTheDocument();
+      expect(screen.getByRole("status")).toBeInTheDocument();
+      expect(await screen.findByText(LABELS.YOU_ARE_ADULT)).toBeInTheDocument();
+      expect(screen.queryByRole("status")).not.toBeInTheDocument();
     });
     test("if the message 'You are adult' is displayed, after loading", async () => {
       render(<AgeChecker />);
