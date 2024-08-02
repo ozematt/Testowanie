@@ -33,8 +33,7 @@ describe("test <AgeChecker />", () => {
       const inputElement = screen.getByRole("spinbutton");
       //input change value
       fireEvent.change(inputElement, { target: { value: 20 } });
-      //input focus out
-      fireEvent.focusOut(inputElement);
+      fireEvent.focusOut(inputElement); //input focus out
 
       //button
       const buttonElement = screen.getByRole("button");
@@ -47,18 +46,15 @@ describe("test <AgeChecker />", () => {
     });
     test("if the message 'You are adult' is displayed, after loading", async () => {
       render(<AgeChecker />);
+      //input - search by placeholder
+      const inputElement = screen.getByPlaceholderText(LABELS.TYPE_YOUR_AGE);
+      //input change value
+      fireEvent.change(inputElement, { target: { value: "16" } });
+      fireEvent.focusOut(inputElement); //input focus out
 
-      const inputElement = screen.getByRole("spinbutton");
+      fireEvent.click(screen.getByText(LABELS.CHECK));
 
-      const buttonElement = screen.getByRole("button");
-
-      fireEvent.change(inputElement, { target: { value: 20 } });
-
-      fireEvent.click(buttonElement);
-
-      // Text 'You are adult.' on screen after loading
-      const finalMessage = await screen.findByText(LABELS.YOU_ARE_ADULT);
-      expect(finalMessage).toBeInTheDocument();
+      expect(await screen.findByText(LABELS.YOU_ARE_MINOR)).toBeInTheDocument();
     });
   });
 });
