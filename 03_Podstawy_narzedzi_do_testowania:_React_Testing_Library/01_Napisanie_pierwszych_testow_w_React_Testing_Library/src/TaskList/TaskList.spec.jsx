@@ -15,10 +15,13 @@ describe("<TaskList />", () => {
     expect(delayedTasks).toBeInTheDocument();
   });
 
-  test("initially does not show tasks list", () => {
+  test("initially does not show tasks list", async () => {
     render(<TaskList />);
-    const delayedTaskList = screen.queryByText("Task 1", "Task 2");
-    expect(delayedTaskList).not.toBeInTheDocument();
+    const firstTaskElement = await screen.findByText("Task 1");
+    const secondTaskElement = await screen.getByText("Task 2");
+
+    expect(firstTaskElement).toBeInTheDocument();
+    expect(secondTaskElement).toBeInTheDocument();
   });
 
   test("after loading the task list, the loading state is no longer present in the DOM", async () => {
