@@ -11,14 +11,14 @@ describe("<TaskList />", () => {
 
   test("updates tasks list after a delay", async () => {
     render(<TaskList />);
-    const deleyedTasks = await screen.findByText("Task 1", "Task 2");
-    expect(deleyedTasks).toBeInTheDocument();
+    const delayedTasks = await screen.findByText("Task 1", "Task 2");
+    expect(delayedTasks).toBeInTheDocument();
   });
 
-  test("initialiy does not show tasks list", () => {
+  test("initially does not show tasks list", () => {
     render(<TaskList />);
-    const deleyedTaskList = screen.queryByText("Task 1", "Task 2");
-    expect(deleyedTaskList).not.toBeInTheDocument();
+    const delayedTaskList = screen.queryByText("Task 1", "Task 2");
+    expect(delayedTaskList).not.toBeInTheDocument();
   });
 
   test("after loading the task list, the loading state is no longer present in the DOM", async () => {
