@@ -9,4 +9,14 @@ describe("<UserProfile /> test", () => {
     expect(screen.getByText("Surname: Doe")).toBeInTheDocument();
     expect(screen.getByText("Email: example@gmail.com")).toBeInTheDocument();
   });
+  test("displays user avatar", () => {
+    render(<UserProfile avatarUrl="www.example.com" />);
+
+    expect(screen.getByAltText("User avatar")).toBeInTheDocument();
+  });
+  test("not displays user avatar", () => {
+    render(<UserProfile />);
+
+    expect(screen.queryByAltText("User avatar")).not.toBeInTheDocument();
+  });
 });
