@@ -1,5 +1,5 @@
 export function UserProfile({ name, surname, email, avatarUrl }) {
-  const defaultMessage = "Information not provided";
+  const defaultMessage = "";
 
   return (
     <div className="user-profile">
