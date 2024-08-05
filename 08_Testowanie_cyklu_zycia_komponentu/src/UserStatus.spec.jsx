@@ -25,4 +25,17 @@ describe(" <UserStatus /> ", () => {
     const localData = JSON.parse(localStorage.getItem("user-1"));
     expect(localData.active).toBeTruthy();
   });
+  test("Testing user data cleaning", () => {
+    const data = { name: "John" };
+    localStorage.setItem("user-1", JSON.stringify(data));
+    const { unmount } = render(<UserStatus userId="1" />);
+
+    const userData = screen.getByText("John");
+    expect(userData).toBeInTheDocument();
+
+    unmount();
+
+    render(<UserStatus />);
+    expect(userData).not.toBeInTheDocument();
+  });
 });
