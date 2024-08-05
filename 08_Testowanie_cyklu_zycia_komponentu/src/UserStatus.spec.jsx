@@ -14,4 +14,15 @@ describe(" <UserStatus /> ", () => {
     expect(title).toBeInTheDocument();
     expect(userData).toBeInTheDocument();
   });
+  test("Testing user data updates", async () => {
+    const data = { name: "John" };
+    localStorage.setItem("user-1", JSON.stringify(data));
+    render(<UserStatus userId="1" />);
+
+    const setActiveButton = screen.getByRole("button", { name: "Set Active" });
+
+    await userEvent.click(setActiveButton);
+    const localData = JSON.parse(localStorage.getItem("user-1"));
+    expect(localData.active).toBeTruthy();
+  });
 });
