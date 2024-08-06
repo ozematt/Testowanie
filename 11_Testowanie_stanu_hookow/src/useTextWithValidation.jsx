@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 export function useTextWithValidation(minLength = 3, maxLength = 20) {
   const [text, setText] = useState("");
   const [isValid, setIsValid] = useState(false);
