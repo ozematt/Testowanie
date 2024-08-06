@@ -33,4 +33,15 @@ describe("<Counter />", () => {
       expect(count).toHaveTextContent("0");
     });
   });
+  describe("Counter status change test", () => {
+    test("checks whether clicking the + button will increase the counter by 1 (the initialization value must be 9 or less)", async () => {
+      const user = userEvent.setup();
+      render(<Counter />);
+      const count = screen.getByTestId("counter");
+      const incrementButton = screen.getByRole("button", { name: "+" });
+
+      await user.click(incrementButton);
+      expect(count).toHaveTextContent("1");
+    });
+  });
 });
