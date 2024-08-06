@@ -18,5 +18,12 @@ describe("<Counter />", () => {
 
       expect(count).toHaveTextContent("2");
     });
+    test("check if the initial value of the counter is 10 if the given initialization value is greater than 10", () => {
+      const user = userEvent.setup();
+      render(<Counter initialValue="12" />);
+      const count = screen.getByTestId("counter");
+
+      expect(count).toHaveTextContent("10");
+    });
   });
 });
