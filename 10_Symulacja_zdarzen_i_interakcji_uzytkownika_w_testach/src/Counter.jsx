@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 const VALUES = {
   MIN: 0,
   MAX: 10,
