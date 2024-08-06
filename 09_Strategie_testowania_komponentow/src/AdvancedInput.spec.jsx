@@ -15,8 +15,7 @@ describe("<AdvancedInput />", () => {
     expect(input).toHaveClass("active");
 
     unmount();
-
-    render(<AdvancedInput isVisible className="inactive" />);
+    render(<AdvancedInput isVisible isDisabled />);
     const input1 = screen.getByRole("textbox");
     expect(input1).toHaveClass("inactive");
   });
