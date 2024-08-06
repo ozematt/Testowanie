@@ -25,5 +25,12 @@ describe("<Counter />", () => {
 
       expect(count).toHaveTextContent("10");
     });
+    test("checking if the initial value of the counter is 0 if the given initialization value is less than 0", () => {
+      const user = userEvent.setup();
+      render(<Counter initialValue="-12" />);
+      const count = screen.getByTestId("counter");
+
+      expect(count).toHaveTextContent("0");
+    });
   });
 });
