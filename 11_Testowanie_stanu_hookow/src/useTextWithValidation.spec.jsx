@@ -16,4 +16,20 @@ describe("< useTextWithValidation />", () => {
     });
     expect(result.current.isValid).toBe(true);
   });
+  it("should set isValid on false when text is not correct", () => {
+    const { result } = renderHook(useTextWithValidation);
+
+    act(() => {
+      result.current.handleChange("Jo");
+    });
+    expect(result.current.isValid).toBe(false);
+  });
+  it("should change text correctly", () => {
+    const { result } = renderHook(useTextWithValidation);
+
+    act(() => {
+      result.current.handleChange("Johnny");
+    });
+    expect(result.current.text).toBe("Johnny");
+  });
 });
