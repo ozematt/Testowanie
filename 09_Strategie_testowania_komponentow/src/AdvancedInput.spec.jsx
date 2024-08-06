@@ -25,4 +25,10 @@ describe("<AdvancedInput />", () => {
 
     expect(input).toHaveValue("initial value");
   });
+  test("Component On/Off State Test", () => {
+    render(<AdvancedInput isVisible isDisabled />);
+    const input = screen.getByRole("textbox");
+
+    expect(input).toBeDisabled();
+  });
 });
