@@ -19,4 +19,10 @@ describe("<AdvancedInput />", () => {
     const input1 = screen.getByRole("textbox");
     expect(input1).toHaveClass("inactive");
   });
+  test("testing display initial value", () => {
+    render(<AdvancedInput isVisible value="initial value" />);
+    const input = screen.getByRole("textbox");
+
+    expect(input).toHaveValue("initial value");
+  });
 });
