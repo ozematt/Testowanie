@@ -73,5 +73,15 @@ describe("<Counter />", () => {
       expect(incrementButton).toBeDisabled();
       expect(count).toHaveTextContent("10");
     });
+    test("checking whether when the counter is at 0, clicking does not decrease its status, and whether the button has a disabled status", async () => {
+      const user = userEvent.setup();
+      render(<Counter />);
+      const count = screen.getByTestId("counter");
+      const decrementButton = screen.getByRole("button", { name: "-" });
+
+      await user.click(decrementButton);
+      expect(decrementButton).toBeDisabled();
+      expect(count).toHaveTextContent("0");
+    });
   });
 });
