@@ -34,7 +34,7 @@ describe("<Counter />", () => {
     });
   });
   describe("Counter status change test", () => {
-    test("checks whether clicking the + button will increase the counter by 1 (the initialization value must be 9 or less)", async () => {
+    test("checks whether clicking the + button will increase the counter by 1", async () => {
       const user = userEvent.setup();
       render(<Counter />);
       const count = screen.getByTestId("counter");
@@ -42,6 +42,24 @@ describe("<Counter />", () => {
 
       await user.click(incrementButton);
       expect(count).toHaveTextContent("1");
+    });
+    test("checking whether clicking the button will decrease the counter by 1", async () => {
+      const user = userEvent.setup();
+      render(<Counter initialValue="5" />);
+      const count = screen.getByTestId("counter");
+      const decrementButton = screen.getByRole("button", { name: "-" });
+
+      await user.click(decrementButton);
+      expect(count).toHaveTextContent("4");
+    });
+    test("check whether clicking the Reset button will reset the counter to zero", async () => {
+      const user = userEvent.setup();
+      render(<Counter initialValue="5" />);
+      const count = screen.getByTestId("counter");
+      const resetButton = screen.getByRole("button", { name: "Reset" });
+
+      await user.click(resetButton);
+      expect(count).toHaveTextContent("0");
     });
   });
 });
