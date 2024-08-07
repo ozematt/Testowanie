@@ -1,4 +1,6 @@
-export function UserProfile({ userId }) {
+import { useState, useEffect } from "react";
+
+export const UserProfile = ({ userId }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
@@ -45,11 +47,11 @@ export function UserProfile({ userId }) {
 
   return (
     <div>
-      <h1>{user.name}</h1>
-      <p>{user.email}</p>
+      <h1>{user?.name}</h1>
+      <p>{user?.email}</p>
     </div>
   );
-}
+};
 
 function Toast({ message }) {
   const [isVisible, setIsVisible] = useState(true);
