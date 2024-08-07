@@ -9,4 +9,10 @@ describe("useLocalStorage hook", () => {
 
     expect(result.current[0]).toBe("defaultValue");
   });
+  test("should initialize with the value from localStorage if it exists", () => {
+    localStorage.setItem("key", JSON.stringify("storedValue"));
+    const { result } = renderHook(() => useLocalStorage("key", "initialValue"));
+
+    expect(result.current[0]).toBe("storedValue");
+  });
 });
