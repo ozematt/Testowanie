@@ -26,4 +26,14 @@ describe("useLocalStorage hook", () => {
     expect(result.current[0]).toBe("newValue");
     expect(localStorage.getItem("key")).toBe(JSON.stringify("newValue"));
   });
+  test("should update the value when localStorage changes", () => {
+    const { result } = renderHook(() => useLocalStorage("key", "initialValue"));
+
+    act(() => {
+      localStorage.setItem("key", JSON.stringify("externalValue"));
+      window.dispatchEvent(new Event("storage"));
+    });
+
+    expect(result.current[0]).toBe("externalValue");
+  });
 });
