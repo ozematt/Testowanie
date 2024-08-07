@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export function RegistrationForm() {
+export const RegistrationForm = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState({});
@@ -57,4 +57,4 @@ export function RegistrationForm() {
       <button type="submit">Register</button>
     </form>
   );
-}
+};
