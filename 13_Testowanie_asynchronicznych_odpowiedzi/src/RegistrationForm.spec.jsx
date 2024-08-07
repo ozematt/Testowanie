@@ -25,4 +25,20 @@ describe("<RegistrationForm />", () => {
 
     expect(await screen.findByText("Email is required.")).toBeInTheDocument();
   });
+  test("should display error when input email is fill incorrectly", async () => {
+    const user = userEvent.setup();
+    render(<RegistrationForm />);
+
+    const email = screen.getByLabelText("Email:");
+    const password = screen.getByLabelText("Password:");
+    const registerButton = screen.getByRole("button", { name: "Register" });
+
+    await user.type(email, "example.gmail.com");
+    await user.type(password, "123456");
+    await user.click(registerButton);
+
+    expect(
+      await screen.findByText("Provided email address is invalid.")
+    ).toBeInTheDocument();
+  });
 });
