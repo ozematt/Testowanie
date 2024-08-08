@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export function ContactForm({ onSubmit }) {
+export const ContactForm = ({ onSubmit }) => {
   const [name, setName] = useState("");
   const [message, setMessage] = useState("");
 
@@ -32,4 +32,4 @@ export function ContactForm({ onSubmit }) {
       <button type="submit">Send</button>
     </form>
   );
-}
+};
