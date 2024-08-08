@@ -11,6 +11,7 @@ describe("<ContactForm />", () => {
     expect(screen.getByLabelText("Message:")).toBeInTheDocument();
     expect(screen.getByRole("button")).toBeInTheDocument();
   });
+
   test("testing form send with data", async () => {
     const user = userEvent.setup();
     const handleSubmit = vi.fn().mockName("handleSubmit");
@@ -27,6 +28,7 @@ describe("<ContactForm />", () => {
       message: "Hello!",
     });
   });
+
   test("testing incomplete sended data", async () => {
     const user = userEvent.setup();
     const handleSubmit = vi.fn().mockName("handleSubmit");
