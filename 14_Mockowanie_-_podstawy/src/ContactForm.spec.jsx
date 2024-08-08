@@ -27,4 +27,15 @@ describe("<ContactForm />", () => {
       message: "Hello!",
     });
   });
+  test("testing incomplete sended data", async () => {
+    const user = userEvent.setup();
+    const handleSubmit = vi.fn().mockName("handleSubmit");
+
+    render(<ContactForm onSubmit={handleSubmit} />);
+
+    await user.type(screen.getByLabelText("Name:"), "John");
+    await user.click(screen.getByRole("button"));
+
+    expect(handleSubmit).not.toBeCalled();
+  });
 });
