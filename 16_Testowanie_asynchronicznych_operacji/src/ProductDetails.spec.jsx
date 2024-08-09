@@ -39,4 +39,10 @@ describe("<ProductDetails />", () => {
       screen.getByText("Could not load product details.")
     ).toBeInTheDocument();
   });
+  test("testing loading state display", () => {
+    mockUseGetProductQuery({ isLoading: true });
+    render(<ProductDetails />);
+
+    expect(screen.getByText("Loading product details...")).toBeInTheDocument();
+  });
 });
