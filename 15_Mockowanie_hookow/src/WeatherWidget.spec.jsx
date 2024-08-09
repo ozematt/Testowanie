@@ -29,4 +29,18 @@ describe("<WeatherWidget />", () => {
       screen.getByText("Failed to load weather data.")
     ).toBeInTheDocument();
   });
+  test("displayed data", () => {
+    mockUseWeather({
+      data: {
+        temperature: 20,
+        condition: "sunny",
+      },
+    });
+
+    render(<WeatherWidget />);
+
+    expect(screen.getByText("Weather Forecast")).toBeInTheDocument();
+    expect(screen.getByText("Temperature: 20°C")).toBeInTheDocument();
+    expect(screen.getByText("Condition: sunny")).toBeInTheDocument();
+  });
 });
