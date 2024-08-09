@@ -20,4 +20,13 @@ describe("<WeatherWidget />", () => {
 
     expect(screen.getByText("Loading weather data...")).toBeInTheDocument();
   });
+  test("should display Error message", () => {
+    mockUseWeather({ isError: true });
+
+    render(<WeatherWidget />);
+
+    expect(
+      screen.getByText("Failed to load weather data.")
+    ).toBeInTheDocument();
+  });
 });
