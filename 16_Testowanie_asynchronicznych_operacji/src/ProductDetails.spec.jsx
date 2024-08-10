@@ -43,6 +43,6 @@ describe("<ProductDetails />", () => {
     mockUseGetProductQuery({ isLoading: true });
     render(<ProductDetails />);
 
-    expect(screen.getByText("Loading product details")).toBeInTheDocument();
+    expect(screen.getByText("Loading product details...")).toBeInTheDocument();
   });
 });
