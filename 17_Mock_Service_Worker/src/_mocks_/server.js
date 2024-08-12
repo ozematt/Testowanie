@@ -1,4 +1,6 @@
 import { setupServer } from "msw/node";
-const handlers = [];
+import { dataHandlers } from "../api/handlers/data";
+
+const handlers = [...dataHandlers];
 
 export const server = setupServer(...handlers);
