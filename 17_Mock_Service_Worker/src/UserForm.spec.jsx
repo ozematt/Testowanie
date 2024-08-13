@@ -46,7 +46,7 @@ describe("testing testFunction", () => {
   });
 });
 
-function renderComponent(userId) 
+function renderComponent(userId) {
   const store = configureStore({
     reducer: {
       [api.reducerPath]: api.reducer,
