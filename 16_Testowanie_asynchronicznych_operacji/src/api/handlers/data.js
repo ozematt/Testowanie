@@ -1,9 +1,20 @@
-import { http, HttpResponse } from "msw";
+import { rest } from "msw";
 
-export const dataHandlers = [
-  http.get("https://www.example.com/data", () => {
-    return HttpResponse.json({
-      data: { id: 1, name: "TV", price: 120, quantity: 5, rating: "9" },
-    });
+export const handlers = [
+  rest.get("https://www.example.com/api/products/:id", (req, res, ctx) => {
+    const { id } = req.params;
+    if (id === "1") {
+      return res(
+        ctx.status(200),
+        ctx.json({
+          name: "iPhone 15 Pro Max",
+          price: 1949,
+          quantity: 102,
+          rating: 10,
+        })
+      );
+    } else {
+      return res(ctx.status(404), ctx.json({ message: "Product not found" }));
+    }
   }),
 ];
