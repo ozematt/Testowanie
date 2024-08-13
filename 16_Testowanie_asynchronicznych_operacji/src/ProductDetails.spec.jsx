@@ -1,8 +1,15 @@
 import { ProductDetails } from "./ProductDetails";
 import { screen, render } from "@testing-library/react";
+import { store } from "./store";
+import { Provider } from "react-redux";
 
 describe("<ProductDetails />", () => {
   test("testing data display", () => {
+    render(
+      <Provider store={store}>
+        <ProductDetails productId={1} />
+      </Provider>
+    );
     expect(screen.getByText("TV")).toBeInTheDocument();
     expect(screen.getByText("Price: 120 EUR")).toBeInTheDocument();
     expect(screen.getByText("Quantity: 5 products")).toBeInTheDocument();
