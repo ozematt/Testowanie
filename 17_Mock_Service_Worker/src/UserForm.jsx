@@ -1,4 +1,6 @@
 // UserForm.spec.jsx
+import { useState } from "react";
+
 export function UserForm({ userId }) {
   const { data: user, isLoading, isError } = useGetUserQuery(userId);
   const [updateUser, { isLoading: isSending, isSuccess }] =
@@ -107,19 +109,3 @@ function validateForm(formData) {
   }
   return errors;
 }
-
-// api.js
-export const api = createApi({
-  reducerPath: "productApi",
-  baseQuery: fetchBaseQuery({ baseUrl: "https://www.example.com/api" }),
-  endpoints: (builder) => ({
-    getUser: builder.query({
-      query: (id) => `/users/${id}`,
-    }),
-    updateUser: builder.mutation({
-      query: (body) => ({ url: "/users", method: "PUT", body }),
-    }),
-  }),
-});
-
-export const { useGetUserQuery, useUpdateUserMutation } = api;

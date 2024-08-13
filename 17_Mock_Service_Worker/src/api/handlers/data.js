@@ -1,7 +1,7 @@
 // handlers.js
 import { http, HttpResponse } from "msw";
 
-export const handlers = [
+export const dataHandlers = [
   http.get("https://www.example.com/api/users/:id", ({ params }) => {
     const { id } = params;
 
