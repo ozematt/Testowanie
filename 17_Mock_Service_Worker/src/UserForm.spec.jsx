@@ -4,7 +4,7 @@ import { Provider } from "react-redux";
 import { UserForm } from "./UserForm";
 import { api } from "./api";
 
-import { render } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 
 describe("testing testFunction", () => {
   test("loads user data and fills the form", async () => {
