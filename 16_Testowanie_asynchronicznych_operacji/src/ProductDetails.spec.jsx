@@ -9,20 +9,20 @@ describe("<ProductDetails />", () => {
     renderComponent(1);
     expect(screen.getByText("Loading product details...")).toBeInTheDocument();
 
-    await waitFor(() => {
-      expect(screen.getByText("TV")).toBeInTheDocument();
-      expect(screen.getByText("Price: 120 EUR")).toBeInTheDocument();
-      expect(screen.getByText("Quantity: 5 products")).toBeInTheDocument();
-      expect(screen.getByText("Rating: 9/10")).toBeInTheDocument();
-    });
+    expect(await screen.findByText("TV")).toBeInTheDocument();
+    expect(screen.getByText("Price: 120 EUR")).toBeInTheDocument();
+    expect(screen.getByText("Quantity: 5 products")).toBeInTheDocument();
+    expect(screen.getByText("Rating: 9/10")).toBeInTheDocument();
   });
   test("testing error message display", async () => {
     renderComponent(2);
 
     expect(screen.getByText("Loading product details...")).toBeInTheDocument();
-    expect(
-      await screen.findByText("Could not load product details.")
-    ).toBeInTheDocument();
+    await waitFor(() => {
+      expect(
+        screen.getByText("Could not load product details.")
+      ).toBeInTheDocument();
+    });
   });
 });
 

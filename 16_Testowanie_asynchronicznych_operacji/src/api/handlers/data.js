@@ -5,13 +5,12 @@ export const dataHandlers = [
     const { id } = params;
     if (id === "1") {
       return HttpResponse.json({
-        name: "Tv",
+        name: "TV",
         price: 120,
         quantity: 5,
         rating: 9,
       });
-    } else {
-      return HttpResponse.json({ message: "Product not found" });
     }
+    return HttpResponse.error();
   }),
 ];
