@@ -1,4 +1,4 @@
-import { useGetProductQuery } from "./api"; // tu ścieżka według implementacji
+import { useGetProductQuery } from "./api";
 
 export function ProductDetails({ productId }) {
   const { data: product, isError, isLoading } = useGetProductQuery(productId);
