@@ -1,7 +1,5 @@
 import { useState } from "react";
 
-// UserForm.spec.jsx
-
 export function UserForm({ userId }) {
   const { data: user, isLoading, isError } = useGetUserQuery(userId);
   const [updateUser, { isLoading: isSending, isSuccess }] =
