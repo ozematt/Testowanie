@@ -1,9 +1,9 @@
-import { describe, expect, render } from "vitest";
-import userEvent from "@testing-library/user-event";
 import { configureStore } from "@reduxjs/toolkit";
+import userEvent from "@testing-library/user-event";
 import { Provider } from "react-redux";
-import { api } from "./api";
+import { describe, expect, render } from "vitest";
 import { UserForm } from "./UserForm";
+import { api } from "./api";
 
 describe("testing testFunction", () => {
   test("loads user data and fills the form", async () => {
