@@ -4,7 +4,7 @@
   "description": "![Coders-Lab-1920px-no-background](https://user-images.githubusercontent.com/30623667/104709394-2cabee80-571f-11eb-9518-ea6a794e558e.png)",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "e2e": "npx playwright test --ui"
   },
   "keywords": [],
   "author": "",
@@ -14,9 +14,11 @@
     "react-dom": "^18.3.1"
   },
   "devDependencies": {
+    "@playwright/test": "^1.46.0",
     "@testing-library/jest-dom": "6.4.1",
     "@testing-library/react": "^16.0.0",
     "@testing-library/user-event": "14.5.2",
+    "@types/node": "^22.2.0",
     "@vitejs/plugin-react": "4.2.1",
     "jsdom": "24.0.0",
     "vite": "5.0.12",
