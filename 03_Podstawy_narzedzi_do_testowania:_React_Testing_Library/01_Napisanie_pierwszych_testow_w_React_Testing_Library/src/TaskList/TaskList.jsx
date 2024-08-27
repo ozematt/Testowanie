@@ -4,7 +4,7 @@ export function TaskList() {
   const [tasks, setTasks] = useState([]);
   const isLoading = tasks.length === 0;
 
-
+  useEffect(() => {
     setTimeout(() => {
       setTasks(["Task 1", "Task 2"]);
     }, 200);
